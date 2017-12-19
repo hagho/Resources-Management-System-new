@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}课程资源管理系统{% endblock %}
+
+
+
+
+
+{% block page_content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 style="color:white;">Share and Study</h1>
+        <br>
+        <p style="color:white" class="lead">一个交流的平台，一个分享的平台，一个共同进步的平台。</p>
+
+
+        {% if current_user.is_authenticated() %}
+        <p><a class="btn btn-lg btn-success greenPulse" href="/upload" role="button">Contribute today</a></p>
+        {% else %}
+        <p><a class="btn btn-lg btn-success greenPulse" href="/signup" role="button">Get started today</a></p>
+        {% endif %}
+    </div>
+    <hr class="featurette-divider">
+
+    <div class="row featurette" style="background: url('../static/images/share.png') no-repeat 0 -180px;background-size:cover; ">
+        <div class="col-md-7" >
+            <br><br><br><br><br><br><br><br>
+            <h2 class="featurette-heading" style="color:white;">分享仅需一动手指。 <br><span class="text-muted" style="color:#99CCCC;">让大家的收获远不止于课堂。</span></h2>
+            <p class="lead"></p>
+        </div>
+        {% if latest %}
+        <div class="col-md-5" style="background-color: #000; opacity: 0.8; border-radius: 5px">
+            
+            <p style="text-align: center; color:white; font-size: 50px;">最近上传资源</p>
+            <ul>
+            {% for i in range(uploader|length) %}
+            <li style="color:white; font-size: 25px; list-style-type: none; text-align: left; word-break: break-word;">{{i+1}} : {{latest[i]['name']}} <span style="float:right;"> {{uploader[i]['username']}}<span> </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %} 
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette" style="background: url('../static/images/handsup.jpg') no-repeat 0 -180px; background-size: cover;">
+        <div class="col-md-7 col-md-push-5">
+            <br><br><br><br>
+            <h2 class="featurette-heading">See, People Talk. <span class="text-muted">这里有发表意见的地方。</span></h2>
+            <br><br>
+            <p class="lead">看看别人怎么说，也发表发表自己的意见。</p>
+        </div>
+            {% if posts %}
+            <div class="col-md-5  col-md-pull-7" style="background-color: #000; opacity: 0.8; border-radius: 5px">
+            <p style="text-align: center; color:white; font-size: 30px;">Talk that Talk</p>
+            <ul>
+            {% for i in range(posts.count()) %}
+            <li style="color:white; font-size: 15px; list-style-type: none; text-align: left; word-break: break-word;">{{i+1}} : {{posts[i]['content']}}</li>
+            {% endfor %}
+            </ul>
+            </div>
+            {% endif %}
+    </div>
+
+    <hr class="featurette-divider">
+
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 Super Hero's Intelligence Team &middot; </p>
+    </footer>
+</div>
+
+
+<style scoped>
+    .jumbotron {
+        text-align: center;
+        /*background-color: transparent;*/
+        background-image: url('../static/images/study.jpg');
+        background-size:cover;
+    }
+    .featurette-divider {
+        margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+    @-webkit-keyframes greenPulse {
+        from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+        50% { background-color: #91bd09; -webkit-box-shadow: 0 0 28px #91bd09; }
+        to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+    }
+    .greenPulse {
+        -webkit-animation-name: greenPulse;
+        -webkit-animation-duration: 3s;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @media (min-width: 768px) {
+        .featurette-heading {
+            font-size: 50px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .featurette-heading {
+            margin-top: 120px;
+        }
+    }
+    .jumbotron > h1 {
+        margin-top:120px;
+    }
+</style>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+{% endblock %}

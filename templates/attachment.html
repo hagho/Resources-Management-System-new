@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block page_content %}
+<div class="page-header">
+    <h1>补充描述</h1>
+</div>
+<div>
+	<form method="POST">
+		{% for x in keName %}
+		<div>
+		<label>{{ x }}(此为单选)</label>
+		<br>
+		<div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="0" id="chkSelect">
+            罗列、不讲解
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="1" id="chkSelect">
+            讲解阐述
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="2" id="chkSelect">
+            需要的知识点
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="3" id="chkSelect">
+            分析阐述
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="4" id="chkSelect">
+            实验阐述
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="5" id="chkSelect">
+            获得知识检验
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="degree" value="6" id="chkSelect">
+            巩固知识
+        </div>
+		<br>
+		Description:<input type="textarea" name="desc">
+		</div>
+		<br>
+		{% endfor %}
+		<br>
+
+		{% for x in newke %}
+		<div>
+		<label>{{ x[0] }}(此为单选)</label>
+		<br>
+		<div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="0" id="chkSelect">
+            罗列、不讲解
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="1" id="chkSelect">
+            讲解阐述
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="2" id="chkSelect">
+            需要的知识点
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="3" id="chkSelect">
+            分析阐述
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="4" id="chkSelect">
+            实验阐述
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="5" id="chkSelect">
+            获得知识检验
+        </div>
+        <div class="checkbox-inline">
+            <input type="checkbox" name="newdegree" value="6" id="chkSelect">
+            巩固知识
+        </div>
+		<br>
+		Description:<input type="textarea" name="newdesc">
+		</div>
+		<br>
+		{% endfor %}		
+		<br>
+		{{ form.hidden_tag() }}
+		{{ wtf.form_field(form.submit, form_type = "horizontal",horizontal_columns=('lg', 0, 0)) }}
+	</form>
+</div>
+{% endblock %}

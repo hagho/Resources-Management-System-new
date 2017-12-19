@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+	<h1>"{{query}}": 的搜索结果为</h1>
+	{% if results_name %}
+		<table class="table table-striped">
+			<tr>
+				<th>名称</th>
+				<th>类型</th>
+				<th>格式</th>
+				<th>下载</th>
+			</tr>
+			{% for i in range(length) %}
+			<tr>
+			<td>{{ results_name[i] }}</td>
+			<td>{{ results_type[i] }}</td>
+			<td>{{ results_format[i] }}</td>
+			<td>
+				<form action="/download" method="POST">
+				<input type="hidden" name="res_id" value="{{ results_id[i] }}">
+				<input type="submit" class="btn btn-danger" value="下载">
+				</form>
+			</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		No results!
+	{% endif %}
+	</div>
+{% endblock %}

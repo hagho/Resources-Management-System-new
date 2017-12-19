@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/selfcss.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='js/selfjs.js') }}">
+  <title>Management</title>
+</head>
+
+<body class="bbody">
+	<div class="abody">
+	<div class="top-bar">
+		<h1>数据后台管理系统</h1>
+	</div>
+	<div class="c-body">
+		<div class="left-panel">
+			<div class="float-panel">
+				<ul class="li-menu">
+					<li class=""><a href="/index">返回首页</a></li>
+					<li class=""><a href="/management">统计</a></li>
+<!-- 					<li class=""><a href="">发布公告</a></li>
+ -->					<li class=""><a href="/management/user">更新用户</a></li>
+					<li class=""><a href="/management/resource">更新资源</a></li>
+					<li class=""><a href="/management/course">更新课程</a></li>
+					<li class=""><a href="/management/organization">更新组织</a></li>
+					<li class=""><a href="/management/tool">更新工具</a></li>
+					<li class=""><a href="/management/standard">更新标准</a></li>
+					<li class=""><a href="/management/knowledge">更新知识点</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="right-body">
+			<div class="item-header">
+				<h1>统计</h1>
+			</div>
+				<ul class="left-li">
+					<li>用户: {{usernum}} 人</li>
+					<li>资源: {{renum}} </li> 
+					<li>课程: {{coursenum}} </li>
+					<li>知识点: {{kenum}} </li>
+					<li>工具: {{toolnum}} </li>
+					<li>标准和规范: {{stdnum}} </li>
+				</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>

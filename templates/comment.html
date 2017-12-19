@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <script src="../static/js/jquery.min.js" type="text/javascript"></script>
+        <script src="../static/assets/js/bootstrap.js" type="text/javascript"></script>
+        <script type="text/javascript" src = "../static/assets/js/jquery-1.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="../static/default.css">
+        <link rel="stylesheet" href="../static/assets/css/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/google-plus.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" type="text/css">
+        <title>Comment——Talk</title>
+    </head>
+    <body>
+        <div class="well"> 
+             <form class="form-horizontal" role="form" action="{{ '/comment/'+ post_id }}" method="POST">
+              <h5 style="word-break:break-word;">{{ post_content }}<a href="/talk" style="float:right;">返回首页</a></h5>
+               <div class="form-group" style="padding:14px;">
+                <textarea class="form-control" name="comment_content" placeholder="你怎么看？"></textarea>
+              </div>
+              
+               <button class="btn btn-success pull-right" type="submit">我也想说</button>
+               <ul class="list-inline">
+                    <li>{{ post_like }}个赞！</li>
+                    <li>{{ post_time.strftime('%Y-%m-%d %H:%M') }}</li>
+               </ul>
+            </form>
+            <div class="panel-body">
+              <div class="list-group">
+                {% for i in range(length) %}
+                    <a >#{{i+1}} {{ comments_time[i].strftime('%Y-%m-%d %H:%M') }}</a><a class="list-group-item" style="word-break:break-word;">{{ comments[i] }}</a>
+                {% endfor %}
+              </div>
+            </div>
+        </div>
+    </body>
+</html>

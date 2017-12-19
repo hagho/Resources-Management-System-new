@@ -1,0 +1,100 @@
+[u’哈佛大学（Harvard, MA） ‘，
+u’普林斯顿大学（Princeton University）（Princeton, NJ） ‘，
+u’耶鲁大学（New Haven, CT） ‘，
+u’哥伦比亚大学（New York, NY） ‘，
+u’芝加哥大学（Chicago, IL） ‘，
+u’麻省理工学院（Cambridge, MA） ‘，
+u’斯坦福大学（Stanford, CA） ‘，
+u’杜克大学（Duke University）（Durham, NC） ‘，
+u’宾夕法尼亚大学（Philadelphia, PA） ‘，
+u’美国加州理工学院（Pasadena, CA） ‘，
+u’达特茅斯学院（Dartmouth College）（Hanover, NH） ‘，
+u’西北大学（Northwestern University）（Evanston, IL） ‘，
+u’约翰•霍普金斯大学（马里兰州巴尔的摩市） ‘，
+u’华盛顿大学圣路易斯分校（St. Louis, MO）‘，
+u’布朗大学（Brown University）（Providence, RI） ‘，
+u’康奈尔大学（Ithaca, NY） ‘，
+u’莱斯大学（Rice University）（Houston, TX） ‘，
+u’圣母大学（Notre Dame, IN） ‘，
+u’范德堡大学（Vanderbilt University）（Nashville, TN） ‘，
+u’埃默里大学（Atlanta, GA） ‘，
+u’乔治城大学（Georgetown University）（Washington, DC） ‘，
+u’美国加州大学伯克利分校（Berkeley, CA） ‘，
+u’卡内基梅隆大学（Pittsburgh, PA） ‘，
+u’美国加州大学洛杉矶分校（洛杉矶，CA） ‘，
+u’美国南加州大学（洛杉矶，CA） ‘，
+u’美国弗吉尼亚大学（Charlottesville, VA） ‘，
+u’维克森林大学（Winston-Salem, NC） ‘，
+u’塔夫茨大学（Medford, MA） ‘，
+u’美国密西根大学安娜堡分校（Ann Arbor, MI） ‘，
+u’北卡罗来纳大学教堂山分校（Chapel Hill, NC） ‘，
+u’波士顿学院（Boston College）（Chestnut Hill, MA） ‘，
+u’纽约大学（New York University）（纽约，NY） ‘，
+u’布兰代斯大学（马萨诸塞州沃尔瑟姆） ‘，
+u’威廉与玛丽学院（弗吉尼亚州威廉斯堡） ‘，
+u’罗切斯特大学（纽约州罗切斯特市） ‘，
+u’佐治亚理工学院（美国佐治亚州亚特兰大） ‘，
+u’凯斯西储大学（俄亥俄州克利夫兰） ‘，
+u’美国里海大学（Lehigh University）（宾夕法尼亚州伯利恒） ‘，
+u’美国加州大学戴维斯分校（戴维斯，CA） ‘，
+u’加州大学圣地亚哥分校（加利福尼亚州拉霍亚） ‘，
+u’伦斯勒理工学院（Rensselaer Polytechnic Institute）（纽约州特洛伊） ‘，
+u’加州大学圣塔芭芭拉分校（加利福尼亚州圣塔巴巴拉） ‘，
+u’美国威斯康星大学麦迪逊分校（麦迪逊，威斯康星） ‘，
+u’美国加州大学欧文分校 （加利福尼亚州欧文） ‘，
+u’迈阿密大学（佛罗里达州科勒尔盖布尔斯） ‘，
+u’宾夕法尼亚州立大学 ‘，
+u’伊利诺伊大学香槟分校（香槟，IL） ‘，
+u’萨斯大学（奥斯汀） ‘，
+u’华盛顿大学-西雅图（华盛顿州） ‘，
+u’叶史瓦大学（纽约，NY） ‘，
+u’波士顿大学（马萨诸塞州波士顿） ‘，
+u’乔治华盛顿大学（George Washington University）（华盛顿DC） ‘，
+u’美国杜兰大学（新奥尔良，LA） ‘，
+u’佩珀代因大学（Pepperdine University）（加利福尼亚州马里布） ‘，
+u’佛罗里达大学（佛罗里达州盖恩斯维尔） ‘，
+u’东北大学（马萨诸塞州波士顿） ‘，
+u’美国俄亥俄州立大学哥伦布分校（俄亥俄州哥伦布市） ‘，
+u’福特汉姆大学（Fordham University）（纽约，NY） ‘，
+u’南卫理公会大学（德克萨斯州达拉斯）‘，
+u’雪城大学（Syracuse University）（美国纽约州雪城）‘，
+u’马里兰大学学院市分校 （马里兰州College Park）‘，
+u’美国匹兹堡大学（宾夕法尼亚州匹兹堡）‘，
+u’康涅狄格大学（斯托尔斯，CT）‘，
+u’乔治亚大学（雅典，GA）‘，
+u’普渡大学西拉法叶校区 （est Lafayette，IN） ‘，
+u’德州农工大学（德克萨斯州College Station）‘，
+u’伍斯特理工学院（马萨诸塞州伍斯特市）‘，
+u’杨百翰大学（普罗沃，UT）‘，
+u’克莱姆森大学（克莱姆森，SC）‘，
+u’州立罗格斯大学（新泽西州Piscataway）‘，
+u’新泽西州立大学新布朗斯威克校（明尼苏达州明尼阿波利斯）‘，
+u’密歇根州立大学（东兰辛，MI） ‘，
+u’美国爱荷华大学（爱荷华州爱荷华市）‘，
+u’弗吉尼亚理工大学(弗吉尼亚州布莱克斯堡)‘，
+u’史蒂文斯科技学院(新泽西州Hoboken)‘，
+u’特拉华大学(特拉华州Newark)‘，
+u’美国大学(华盛顿DC) ‘，
+u’贝勒大学（Baylor University）(德克萨斯州Waco)‘，
+u’科罗拉多矿业学院(Golden, CO)‘，
+u’美国纽约州立大学环境科学与林业科学学院(美国纽约州雪城)‘，
+u’美国阿拉巴马大学(塔斯卡卢萨，AL)‘，
+u’加州大学圣克鲁兹分校(加利福尼亚州圣克鲁斯) ‘，
+u’克拉克大学（Clark University）(马萨诸塞州伍斯特市)‘，
+u’德雷克塞尔大学（Drexel University）(宾夕法尼亚州费城)‘，
+u’印地安那大学伯明顿分校(布卢明顿，IN)‘，
+u’马凯特大学(威斯康星州密尔沃基)‘，
+u’丹佛大学(科罗拉多州丹佛市)‘，
+u’塔尔萨大学(塔尔萨)‘，
+u’奥本大学(奥本大学，AL)‘，
+u’宾厄姆顿大学-纽约州立大学(美国纽约州宾厄姆顿)‘，
+u’迈阿密大学牛津分校(牛津，OH)‘，
+u’华盛顿大学(圣路易斯，密苏里州)‘，
+u’纽约州立大学石溪分校(石溪分校，纽约)‘，
+u’德克萨斯基督教大学(德克萨斯州沃思堡)‘，
+u’圣地亚哥大学(圣地亚哥，加利福尼亚州)‘，
+u’佛蒙特大学(伯灵顿，VT)‘，
+u’佛罗里达州立大学(佛罗里达州塔拉哈西) ‘，
+u’科罗拉多大学(科罗拉多州博尔德)‘，
+u’美国马萨诸塞大学 - 阿姆赫斯特(阿默斯特，MA)‘，
+u’密苏里大学(哥伦比亚，MO)‘]

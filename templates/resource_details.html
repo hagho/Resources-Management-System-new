@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block page_content %}
+<div class="row" style="width:800px;display:block;margin-left:auto;margin-right:auto;">
+<div style="border-bottom-width:1px;border-bottom-style:solid;border-bottom-color:#E8E8E8;text-align:center;width:700px;height:50px;margin:0;display:block;margin-left:auto;margin-right:auto;">
+    <h2>{{ res_name }}</h2>
+</div>
+<div style="width:700px;margin-top:30px;margin-bottom:30px;display:block;margin-left:auto;margin-right:auto;">
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:left;">
+        <form action="/download" method="POST">
+            <input type="hidden" name="res_id" value="{{ res_id }}">
+            <input type="submit" class="btn" value="下载">
+        </form>
+    </div>
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:right;">
+        <button class="btn btn-default" type="button">上传人</button>
+        {{ uploader }}
+    </div>  
+
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:left;">
+        <button class="btn btn-default" type="button">类型</button>
+        {{ types }}
+    </div>
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:right;">
+        <button class="btn btn-default" type="button">格式</button>
+        {{ format }}
+    </div>
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:left;">
+        <button class="btn btn-default" type="button">作者</button>
+        {{ author }}
+    </div>
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:right;">
+        <button class="btn btn-default" type="button">课程</button>
+        {{ course }}
+    </div>
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:left;">
+        <button class="btn btn-default" type="button">上传时间</button>
+        {{ uptime.strftime('%Y-%m-%d %H:%M') }}
+    </div>
+    <div style="width:350px;margin-top:30px;margin-bottom:10px;display:block;float:right;">
+        <button class="btn btn-default" type="button">更新时间</button>
+        {{ updatetime.strftime('%Y-%m-%d %H:%M') }}
+    </div>
+    <div style="width:700px;margin-top:30px;margin-bottom:10px;display:block;float:left;">
+        <button class="btn btn-default" type="button">来源地址</button>
+        {{ url }}
+    </div>
+    <div style="width:700px;margin-top:30px;margin-bottom:10px;display:block;float:left;">
+        <button class="btn btn-default" type="button">描述</button>
+        {{ res_desc }}
+    </div>
+
+</div>
+</div>
+{% endblock %}

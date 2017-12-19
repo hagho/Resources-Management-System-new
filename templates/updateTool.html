@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/selfcss.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='js/selfjs.js') }}">
+
+  <title>Management</title>
+</head>
+
+<body class="bbody">
+	<div class="abody">
+	<div class="top-bar">
+		<h1>数据后台管理系统</h1>
+	</div>
+	<div class="c-body">
+		<div class="left-panel">
+			<div class="float-panel">
+				<ul class="li-menu">
+					<li class=""><a href="../index">返回首页</a></li>
+					<li class=""><a href="/management">统计</a></li>
+<!-- 					<li class=""><a href="">发布公告</a></li>
+ -->					<li class=""><a href="/management/user">更新用户</a></li>
+					<li class=""><a href="/management/resource">更新资源</a></li>
+					<li class=""><a href="/management/course">更新课程</a></li>
+					<li class=""><a href="/management/organization">更新组织</a></li>
+					<li class=""><a href="/management/tool">更新工具</a></li>
+					<li class=""><a href="/management/standard">更新标准</a></li>
+					<li class=""><a href="/management/knowledge">更新知识点</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="right-body">
+			<div class="item-header">
+				<h1>更新工具</h1>
+			</div>
+			<div class="database-table">
+				<div class="database">
+					{% for i in range(length) %}
+					<div class="data-li">
+						<p class="li-id">[{{tids[i]}}]</p>
+						<p class=""><a href="">{{tool[i]}}</a></p>	
+						<p class="li-desc">描述: {{t_desc[i]}}</p>
+						<div>
+							<form action="/deleteTool" method="POST">
+          						<input type="hidden" name="tool" value="{{ tids[i] }}">
+  								<input type="submit" class="btn btn-danger" value="删除">
+  							</form>
+						</div>
+						<!--div>
+							<form action="/updateTool" method="POST">
+          						<input type="hidden" name="tool" value="{{ tids[i] }}">
+  								<input type="submit" class="btn btn-danger" value="更改">
+  							</form>
+						</div!-->
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

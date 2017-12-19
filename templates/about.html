@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../static/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src = "../static/assets/js/jquery-1.js"></script>
+        <script type="text/javascript" src="../static/lib/hammer.2.0.4.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../static/default.css">
+        <link rel="stylesheet" href="../static/lib/genericons/genericons.css" type="text/css">
+        <link rel="stylesheet" href="../static/base.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/bootstrap.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/google-plus.css" type="text/css">
+        <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" type="text/css">
+
+        <title>Talk</title>
+    </head>
+    <body background="../static/images/study.jpg">
+        <div id="ptr">
+            <span class="genericon genericon-next"></span>
+            <div class="loading">
+                <span id="l1"></span>
+                <span id="l2"></span>
+                <span id="l3"></span>
+            </div>
+        </div>
+        <div class="navbar navbar-fixed-top header"style="#background: url(../static/img/blur.png); background-color: #333"  >
+            <div class="col-md-12">
+                <div class="navbar-header" >
+                    <a href="/" class="navbar-brand">Back</a>
+                    <div class="write"><a href="#inputModal" data-toggle="modal"><div class="glyphicon glyphicon-pencil" aria-hidden="true"></div></a></div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+
+            <div class="masonry">
+                {% for i in range(length) %}
+                <div class="box panel-body" id = "{{ i }}">
+
+                    <div style="overflow: hidden;"><p>{{ post_contents[i] }}</p></div>
+                    <div class="box-fun">
+                        <a href="{{ '/comment/'+ post_id[i] }}">
+                            <div class="glyphicon glyphicon-comment" aria-hidden="true">
+                                <span class="num">{{ comment_num[i] }}</span>
+                            </div>
+                        </a>
+                        <span>|</span>
+                        <div class="glyphicon glyphicon-heart" id="{{ post_id[i] }}" aria-hidden="true">
+                            <span class="num">{{ post_like[i] }}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    <div style="display: none;" id="inputModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h2 class="text-center"><img src="" class="img-circle"><br>Say something</h2>
+            </div>
+            <div class="modal-body">
+                <form class="form col-md-12 center-block" method="POST">
+                    <div class="form-group">
+                        <input class="form-control input-lg" placeholder="有什么想说的么？" type="text" name="post_content" id="post">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">发表</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                </div>    
+            </div>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var h = new Hammer(document.getElementById("content"));
+        h.on("press", function(ev){
+            console.log(ev);
+        });
+
+
+        // display the color random for every block
+        var allBlock = document.getElementsByClassName("box");
+        var colorList = ["#CCFF99", "#FFCC99", "#99CCFF", "#ABCDEF", "#CCCC99", "#CCCCCC", "#FFFFCC"];
+        var listLength = colorList.length
+        for (var i = 0; i < allBlock.length; i++) {
+            var index = Math.floor(Math.random() * listLength);
+            var block = "div#" + i + ".box";
+            $(block).css("background-color", colorList[index]);
+        }
+       
+
+        $("div.glyphicon-heart").click(function() {
+            console.log($(this).attr("id"));
+            var data = {'post_id':$(this).attr("id")};
+            if ($(this).hasClass("changeRed")) {
+                $(this).removeClass("changeRed");
+                var likenum = parseInt($(this).find(".num").html());
+                likenum = likenum - 1;
+                $(this).find(".num").html(likenum);
+                $.ajax({
+                    url: '/removeLike',
+                    data: JSON.stringify(data, null, '\t'),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            } else {
+                $(this).addClass("changeRed");
+                var likenum = parseInt($(this).find(".num").html());
+                likenum = likenum + 1;
+                $(this).find(".num").html(likenum);
+                $.ajax({
+                    url: '/addLike',
+                    data: JSON.stringify(data, null, '\t'),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            }
+        })
+    </script>
+    </body>
+</html>

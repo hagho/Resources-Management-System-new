@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>上传资源</h1>
+</div>
+<div>
+	<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+		{{ wtf.form_field(form.file, form_type = "horizontal",horizontal_columns=('lg', 1, 3)) }}
+		<br>
+		<br>
+		<br>
+    	{{ wtf.form_field(form.name, form_type = "horizontal",horizontal_columns=('lg', 1, 3)) }}
+    	<br>
+    	<br>
+    	{{ wtf.form_field(form.types, form_type = "horizontal",horizontal_columns=('lg', 1, 2)) }}
+    	<br>
+    	<br>
+    	{{ wtf.form_field(form.format, form_type = "horizontal",horizontal_columns=('lg', 1, 2)) }}
+    	<br>
+    	<br>
+    	{{ wtf.form_field(form.course, form_type = "horizontal",horizontal_columns=('lg', 1, 2)) }}
+    	<br>
+    	<br>
+    	{{ wtf.form_field(form.url, form_type = "horizontal",horizontal_columns=('lg', 1, 4)) }}
+    	<br>
+    	<br>
+    	{{ wtf.form_field(form.author, form_type = "horizontal",horizontal_columns=('lg', 1, 2)) }}
+    	<br>
+    	<br>
+    	{{ wtf.form_field(form.desc, form_type = "horizontal",horizontal_columns=('lg', 1, 4)) }}
+    	<br>
+    	<br>
+    	<br>
+    	<br>
+
+    	<ul class="nav nav-tabs" role="tablist">
+  			<li role="presentation" class="active"><a href="#org" role="tab" data-toggle="tab">组织或学校</a></li>
+  			<li role="presentation"><a href="#knowledge" role="tab" data-toggle="tab">知识点</a></li>
+  			<li role="presentation"><a href="#tool" role="tab" data-toggle="tab">工具</a></li>
+  			<li role="presentation"><a href="#standard" role="tab" data-toggle="tab">标准</a></li>
+  		</ul>
+  		<div class="tab-content">
+  			<div role="tabpanel" class="tab-pane active" id="org">
+          <br>
+          <div class="panelpanle">
+          <select id="sbOneOrg" multiple="multiple">
+          {% for org in orgs %}
+            <option value="{{org}}">{{org}}</option>
+          {% endfor %}
+          </select>
+
+          <select name="org" id="sbTwoOrg" multiple="multiple">
+
+          </select>
+          <br>
+          <br>
+          <div class="fourButton">
+            <input type="button" id="leftallOrg" class="btn btn-default btn-sm" value="<<" />
+            <input type="button" id="leftOrg" class="btn btn-default btn-sm" value="<" />
+            <input type="button" id="rightOrg" class="btn btn-default btn-sm" value=">" />
+            <input type="button" id="rightallOrg" class="btn btn-default btn-sm" value=">>" />
+          </div>
+        </div>
+          <br>
+          <br>
+          <label>如果有新的组织或学校，请点击手动添加：</label>
+          <button class="btn btn-default btn-sm" type="button" onclick="appendText('neworg')">添加</button>
+          <br>
+          <div class="row" id="neworgd">
+          </div>
+  		</div>
+  			<div role="tabpanel" class="tab-pane" id="knowledge">
+          <br>
+          <div class="panelpanle">
+          <select id="sbOneKnow" multiple="multiple">
+          {% for know in knows %}
+            <option value="{{know}}">{{know}}</option>
+          {% endfor %}
+          </select>
+
+          <select name="know" id="sbTwoKnow" multiple="multiple">
+
+          </select>
+          <br>
+          <br>
+          <div class="fourButton">
+            <input type="button" id="leftallKnow" class="btn btn-default btn-sm" value="<<" />
+            <input type="button" id="leftKnow" class="btn btn-default btn-sm" value="<" />
+            <input type="button" id="rightKnow" class="btn btn-default btn-sm" value=">" />
+            <input type="button" id="rightallKnow" class="btn btn-default btn-sm" value=">>" />
+          </div>
+        </div>
+          <br>
+          <br>
+          <label>如果有新的知识点，请点击手动添加：</label>
+          <button class="btn btn-default btn-sm" type="button" onclick="appendText('newknow')">添加</button>
+          <br>
+          <div class="row" id="newknowd">
+          </div>
+  			</div>
+  			<div role="tabpanel" class="tab-pane" id="tool">
+          <br>
+          <div class="panelpanle">
+          <select id="sbOneTool" multiple="multiple">
+          {% for tool in tools %}
+            <option value="{{tool}}">{{tool}}</option>
+          {% endfor %}
+          </select>
+
+          <select name="tool" id="sbTwoTool" multiple="multiple">
+
+          </select>
+          <br>
+          <br>
+          <div class="fourButton">
+            <input type="button" id="leftallTool" class="btn btn-default btn-sm" value="<<" />
+            <input type="button" id="leftTool" class="btn btn-default btn-sm" value="<" />
+            <input type="button" id="rightTool" class="btn btn-default btn-sm" value=">" />
+            <input type="button" id="rightallTool" class="btn btn-default btn-sm" value=">>" />
+          </div>
+        </div>
+          <br>
+          <br>
+          <label>如果有新的工具，请点击手动添加：</label>
+          <button class="btn btn-default btn-sm" type="button" onclick="appendText('newtool')">添加</button>
+          <br>
+          <div class="row" id="newtoold">
+          </div>
+  			</div>
+  			<div role="tabpanel" class="tab-pane" id="standard">
+          <br>
+          <div class="panelpanle">
+          <select id="sbOneStd" multiple="multiple">
+          {% for std in stds %}
+            <option value="{{std}}">{{std}}</option>
+          {% endfor %}
+          </select>
+
+          <select name="std" id="sbTwoStd" multiple="multiple">
+
+          </select>
+          <br>
+          <br>
+          <div class="fourButton">
+            <input type="button" id="leftallStd" class="btn btn-default btn-sm" value="<<" />
+            <input type="button" id="leftStd" class="btn btn-default btn-sm" value="<" />
+            <input type="button" id="rightStd" class="btn btn-default btn-sm" value=">" />
+            <input type="button" id="rightallStd" class="btn btn-default btn-sm" value=">>" />
+          </div>
+        </div>
+          <br>
+          <br>
+          <label>如果有新的标准，请点击手动添加：</label>
+          <button class="btn btn-default btn-sm" type="button" onclick="appendText('newstd')">添加</button>
+          <br>
+          <div class="row" id="newstdd">
+          </div>
+  			</div>
+		</div>
+		<script>
+  			$(function () {
+    			$('#myTab a:last').tab('show')
+  			})
+		</script>
+    <script>
+        function removeText(count) {
+          $("#"+count).remove();
+        }
+    </script>
+    <script> 
+        var count = 0
+        function appendText(newname) {
+            $("#"+newname+"d").append("<div class='col-sm-8' id='" + count + "'>Name:<input type='text' name='" + newname + "'>Description:<input type='textarea' name='"+newname+"desc'><button type='button' class=\"btn btn-danger btn-sm\"" + " onclick=\"removeText(" + count + ")\">remove</button></div>");
+              count = count+1;
+        }
+
+      $(function () { function moveItems(origin, dest) {
+          $(origin).find(':selected').appendTo(dest);
+      }
+
+      function moveAllItems(origin, dest) {
+        $(origin).children().appendTo(dest);
+      }
+
+      $('#leftOrg').click(function () {
+          moveItems('#sbTwoOrg', '#sbOneOrg');
+      });
+
+      $('#rightOrg').on('click', function () {
+          moveItems('#sbOneOrg', '#sbTwoOrg');
+      });
+
+      $('#leftallOrg').on('click', function () {
+          moveAllItems('#sbTwoOrg', '#sbOneOrg');
+      });
+
+      $('#rightallOrg').on('click', function () {
+          moveAllItems('#sbOneOrg', '#sbTwoOrg');
+      });
+
+
+      $('#leftStd').click(function () {
+          moveItems('#sbTwoStd', '#sbOneStd');
+      });
+
+      $('#rightStd').on('click', function () {
+          moveItems('#sbOneStd', '#sbTwoStd');
+      });
+
+      $('#leftallStd').on('click', function () {
+          moveAllItems('#sbTwoStd', '#sbOneStd');
+      });
+
+      $('#rightallStd').on('click', function () {
+          moveAllItems('#sbOneStd', '#sbTwoStd');
+      });
+
+
+      $('#leftKnow').click(function () {
+          moveItems('#sbTwoKnow', '#sbOneKnow');
+      });
+
+      $('#rightKnow').on('click', function () {
+          moveItems('#sbOneKnow', '#sbTwoKnow');
+      });
+
+      $('#leftallKnow').on('click', function () {
+          moveAllItems('#sbTwoKnow', '#sbOneKnow');
+      });
+
+      $('#rightallKnow').on('click', function () {
+          moveAllItems('#sbOneKnow', '#sbTwoKnow');
+      });
+
+
+      $('#leftTool').click(function () {
+          moveItems('#sbTwoTool', '#sbOneTool');
+      });
+
+      $('#rightTool').on('click', function () {
+          moveItems('#sbOneTool', '#sbTwoTool');
+      });
+
+      $('#leftallTool').on('click', function () {
+          moveAllItems('#sbTwoTool', '#sbOneTool');
+      });
+
+      $('#rightallTool').on('click', function () {
+          moveAllItems('#sbOneTool', '#sbTwoTool');
+      });
+      });
+    </script>
+
+    <br>
+          {{ wtf.form_field(form.submit, form_type = "horizontal",horizontal_columns=('lg', 0, 0)) }}
+	 </form>
+</div>
+</script>
+{% endblock %}

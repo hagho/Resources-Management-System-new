@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block page_content %}
+<div class="page-header">
+    <h1>搜索资源</h1>
+</div>
+  <div class="container"> 
+        
+  <!-- 
+    	<form  action="{{url_for('search')}}" method="post">
+    		<div class="col-lg-6">
+    <div class="input-group">
+            {{form.hidden_tag()}}
+            {{wtf.form_field(form.title)}}
+            {{wtf.form_field(form.submit)}}
+
+		
+      	   </div>       
+      	</form> -->
+	<form name="search" method="POST"> 
+	<div class="row">
+      	<div class="col-lg-6">
+    		<div class="input-group">
+      <input type="text" class="form-control", name="search_title", placeholder="请输入想搜索的标题">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Go!</button>
+      </span>
+    		</div><!-- /input-group -->
+    		            <p class="help-block">勾选以下选项可获得更详细结果</p>
+
+  		</div>
+    </div>
+
+	{%for key in types_format.keys() %}
+	<div class = "control-group">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<label class="control-label">
+					{{key}}
+				</label>
+			</div>
+			<div class="panel-body">
+				<div class="controls">
+					{%for type in types_format[key]%}
+					<label class="checkbox-inline">
+						{% if type.__len__() == 2 %}
+						<input type="checkbox" name={{key}} value="{{type[0]}}">
+						{{type[1]}}
+						{% else %}
+						<input type="checkbox" name={{key}} value="{{type}}">
+						{{type}}
+					</label>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+
+
+
+	
+
+
+      </form>
+
+   </div>
+{% endblock %}
